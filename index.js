@@ -58,11 +58,11 @@ app.get('/search', function (req, res){
     query: {
       match: {
           text: {
-            query: req.query['q'],      // nazi leaders   // if fuzziness is 2 then nazi could be jedi and we get bad results
+            query: req.query['q'],         // if fuzziness is 2 then nazi could be jedi and we get bad results
             //fields: ['Title', 'text', 'Genre'],
 
             //minimum_should_match: 2,     // make this value one less ( 1 less  ) than the query word length if possible and only
-            //                              // if the query word leghth is greater than 2. ( or >= 3 ) . if not possible just exlude.
+            //                             // if the query word leghth is greater than 2. ( or >= 3 ) . if not possible just exlude.
             fuzziness: 1          // handles mispelling up to a couple characters per word // note that relevance score gets worse as the word is spelled worse
           }
       }

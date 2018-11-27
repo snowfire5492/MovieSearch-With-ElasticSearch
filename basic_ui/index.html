@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="searchApp">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+<script src="app.js"></script>
+</head>
+<body>
+	<div class="jumbotron" style="background-color:#286090">
+		<center>
+			<h1 class="display-1" style="color:#FFFFFF; font-family:Georgia">Search IMDB Movies!</h1>
+		</center>
+	</div>
+	<div class="container">
+		<div ng-controller="SearchController as searchQuery">
+			<div class="row">
+				<div class="col-lg-8 col-md-offset-2">
+					<form ng-submit="searchQuery.search()">
+						<div class="input-group">
+							<input class="form-control" type="text"
+								ng-model="searchQuery.queryString" placeholder="Search for...">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" style="background-color:#286090" type="submit">
+									<span class="glyphicon glyphicon-search"></span> Search
+								</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div ng-if="!searchQuery.results.timed_out">
+				<!--{{searchQuery.results}}-->
+				<div ng-if="searchQuery.results.hits.total > 0">
+					<!--{{searchQuery.results}}-->
+					<div class="row">
+						<div class=""col-lg-8 col-md-offset-2""
+							ng-repeat="result in searchQuery.results.hits.hits">
+							<blockquote>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<span><a href='result._source.URL'>{{result._source.Title
+												}}</a></span> <span>( Genre: {{ result._source.Genre }} | Year:
+											{{result._source.Year}})</span>
+									</div>
+								</div>
+								<div class="panel-body">
+									<p>{{ result._source.Text }}, {{ result._source.URL }}</p>
+								</div>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-if="searchQuery.results.timed_out">Time out try again</div>
+		</div>
+	</div>
+</body>
+</html>

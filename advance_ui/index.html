@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html ng-app="searchApp">
+<head>
+	
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+	
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+<script src="app.js"></script>
+
+
+<!--
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="./css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./js/star-rating.js" type="text/javascript"></script>  
+-->
+
+</head>
+<body>
+	<div class="jumbotron" style="background-color: #286090">
+		<center>
+			<h1 class="display-1" style="color: #FFFFFF; font-family: Georgia">Search
+				IMDB Movies!</h1>
+		</center>
+	</div>
+	<div class="container" ng-controller="SearchController as searchQuery">
+		<div class="row" align="center">
+			<form ng-submit="searchQuery.search()">
+				<div class="input-group">
+<!--
+					<div class="input-group-btn">
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+				        <ul class="dropdown-menu">
+				          <li><a href="#">Action</a></li>
+				          <li><a href="#">Another action</a></li>
+				          <li><a href="#">Something else here</a></li>
+				          <li role="separator" class="divider"></li>
+				          <li><a href="#">Separated link</a></li>
+				        </ul>
+				    </div>
+-->
+					<input class="form-control" autofocus="autofocus" type="text"
+						ng-model="searchQuery.queryString" placeholder="Search for...">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" style="background-color: #286090"
+							type="submit">
+							<span class="glyphicon glyphicon-search"></span> Search
+						</button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div ng-if="!searchQuery.results.timed_out">
+			<div ng-if="searchQuery.results.hits.total > 0">
+				<div align="left" style="padding: 15px 0 15px 0">Total
+					{{searchQuery.results.hits.total}} results
+					({{searchQuery.results.took}} milliseconds)
+				</div>
+				<div class="row" ng-repeat="result in searchQuery.results.hits.hits">
+					<blockquote
+						style="border-style: solid; border-radius: 8px; border-width: 1px; border-color: #66AFE9; border-left-width: 10px; box-shadow: 0 0 5px #66AFE9;">
+						<div class="row" style="padding: 0 0 0 0">
+						<div class="col-lg-2" style="width: 12.10%">
+							<img src={{result._source.image}} height="150px" width="120px" style="box-shadow: 0 0 5px #66AFE9;">
+						</div>
+						<div class="col-lg-10" style="width: 87.90%">
+						<div class="panel panel-default" style="border: 0">
+							<div class="panel-heading row" style="border-radius: 8px">
+								<div class="col-md-8">
+									<a href={{result._source.url}} target="_blanck"><b>{{result._source.title}}</b></a> ({{result._source.year}})
+								</div>
+								<div align="right" class="col-md-4">{{
+									result._source.genre }}</div>
+							</div>
+						</div>
+						<div class="panel-body" style="padding: 0 0 0 0">
+							<div>
+								<div class="row" style="padding: 0 0 0 0">
+	<!--
+									<form>
+										<input id="input-21d" value={{result._source.rating}} type="text" class="rating" data-min=0 data-max=5 data-step=0.1 data-size="sm"
+										   title="">
+									</form>
+	-->
+									<div class="col-md-10">
+										<font color=#8c8c8c><b>Actors:</b> {{result._source.actors}}</font>
+									</div>
+									<div align="right" class="col-md-2">
+										<div class="progress" style="position:relative; text-align:center;">
+											<div class="progress-bar progress-bar-striped active progress-bar-warning" role="progressbar" aria-valuenow={{result._source.rating}} aria-valuemin="0" aria-valuemax="10" style="width:{{(result._source.rating)*10}}%"></div>
+											<span class="progress-value" style="position:absolute; left:0; width:100%; z-index:2;">{{result._source.rating}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div align="justify">
+								{{ result._source.summary}}
+							</div>
+						</div>
+						</div>
+						</div>
+					</blockquote>
+				</div>
+			</div>
+			<div align="left" style="padding: 15px 0 15px 0" ng-if="searchQuery.results.hits.total === 0">No result found, please try again</div>
+		</div>
+		<div align="left" style="padding: 15px 0 15px 0" ng-if="searchQuery.results.timed_out">Time out, please try again</div>
+	</div>
+</body>
+</html>

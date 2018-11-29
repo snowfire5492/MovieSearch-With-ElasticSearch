@@ -32,4 +32,4 @@ Finally download the Basic UI html and js files
               or
         download the advanced UI html and js files
         
-Simple open the html file and enjoy searching!
+Simply open the html file and enjoy searching!

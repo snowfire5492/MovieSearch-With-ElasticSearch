@@ -5,22 +5,18 @@
 	
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-	
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
 <script src="app.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!--
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="./css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="./js/star-rating.js" type="text/javascript"></script>  
--->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </head>
 <body>
@@ -34,18 +30,28 @@
 		<div class="row" align="center">
 			<form ng-submit="searchQuery.search()">
 				<div class="input-group">
-<!--
-					<div class="input-group-btn">
-				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+					
+					 <div class="input-group-btn">
+					
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <span class="caret"></span></button>
 				        <ul class="dropdown-menu">
-				          <li><a href="#">Action</a></li>
-				          <li><a href="#">Another action</a></li>
-				          <li><a href="#">Something else here</a></li>
+				          <li><a href="#" "onclick="noFilter()"> ------- </a> </li>
 				          <li role="separator" class="divider"></li>
-				          <li><a href="#">Separated link</a></li>
+				          <li><a href="#" "onclick="ActionFilter()"> Action </a> </li>
+				          <li><a href="#" "onclick="AdventureFilter()"> Adventure </a> </li>
+				          <li><a href="#" "onclick="AnimationFilter()"> Animation </a> </li>
+				          <li><a href="#" "onclick="CrimeFilter()"> Crime </a> </li>
+				          <li><a href="#" "onclick="DocumentaryFilter()"> Documentary </a> </li>
+				          <li><a href="#" "onclick="DramaFilter()"> Drama </a> </li>
+				          <li><a href="#" "onclick="FantasyFilter()"> Fantasy </a> </li>
+				          <li><a href="#" "onclick="HorrorFilter()"> Horror </a> </li>
+				          <li><a href="#" "onclick="MysteryFilter()"> Mystery </a> </li>
+				          <li><a href="#" "onclick="SciFilter()"> Sci-Fi </a> </li>
+				          <li><a href="#" "onclick="ShortFilter()"> Short </a> </li>
+				          <li><a href="#" "onclick="ThrillerFilter()"> Thriller </a> </li>
 				        </ul>
 				    </div>
--->
+
 					<input class="form-control" autofocus="autofocus" type="text"
 						ng-model="searchQuery.queryString" placeholder="Search for...">
 					<span class="input-group-btn">

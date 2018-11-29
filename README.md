@@ -16,7 +16,7 @@ To run elastic-search, Access /bin via terminal and run
 
 Go to localhost:9200 to make sure elastic search is up and running
 
-Next download the imdb.json file located here on Github and locate the file with your terminal.
+Next download the imdb.json file from dropbox, link located here on our Github,  and locate the file with your terminal.
 
 Index into elastic search using one of the following commands: 
 

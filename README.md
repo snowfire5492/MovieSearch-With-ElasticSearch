@@ -20,10 +20,12 @@ Next download the imdb.json file located here on Github and locate the file with
 
 Index into elastic search using one of the following commands: 
 
-for linux/mac
+for linux/mac:
+
 curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/imdb/doc/_bulk?pretty' --data-binary @imdb.json
 
-for windows ( use powershell ) 
+for windows ( use powershell ): 
+
 Invoke-RestMethod "http://localhost:9200/imdb/doc/_bulk?pretty" -Method Post -ContentType 'application/x-ndjson' -InFile "imdb.json"
 
 Finally download the Basic UI html and js files 

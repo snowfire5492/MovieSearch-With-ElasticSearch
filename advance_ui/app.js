@@ -17,3 +17,32 @@ var searchApp = angular.module('searchApp', []);
    	);
     };
   }]);
+
+function noFilter() {
+  // set string = "";
+}             
+function ActionFilter() {
+  // set string = "Action";
+}             
+function AdventureFilter() { 
+}             
+function AnimationFilter() {
+}             
+function CrimeFilter() {
+}             
+function DocumentaryFilter() {
+}             
+function DramaFilter() {
+}             
+function FantasyFilter() {
+}             
+function HorrorFilter() {
+}             
+function MysteryFilter() {
+}             
+function SciFilter() {
+}             
+function ShortFilter() {
+}             
+function ThrillerFilter() {
+}  

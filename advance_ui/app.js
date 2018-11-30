@@ -29,16 +29,16 @@ var searchApp = angular.module('searchApp', []);
       console.log(logEntry);
       searchQuery.sessionInfo.queries.push(logEntry);
       searchQuery.sessionInfo.total_queries += 1;
-    	$http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q=*'+searchQuery.queryString+'*' })
-	//$http({ method: 'GET', url: 'test.json' })
-      	.then(function (response) {
+      $http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q=*'+searchQuery.queryString+'*' })
+  //$http({ method: 'GET', url: 'test.json' })
+        .then(function (response) {
             //console.log(response.data);
             return searchQuery.results = response.data;
-	    //return searchQuery.results = [{"took":1,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":0,"max_score":null,"hits":[]}}]
-      	}, function (response) {
+      //return searchQuery.results = [{"took":1,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":0,"max_score":null,"hits":[]}}]
+        }, function (response) {
 
-      	}
-   	);
+        }
+    );
     };
 
     searchQuery.logURLClick = function($event) {
@@ -85,7 +85,10 @@ function AdventureFilter() {
 function AnimationFilter() {
 }             
 function CrimeFilter() {
-}             
+}     
+function ComedyFilter(){
+  
+}        
 function DocumentaryFilter() {
 }             
 function DramaFilter() {

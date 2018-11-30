@@ -58,12 +58,19 @@ var searchApp = angular.module('searchApp', []);
       ") ended at " + searchQuery.sessionInfo.end);
 
       var sessionText = JSON.stringify(searchQuery.sessionInfo);
-      var uri = "data:application/json;charset=UTF-8," + encodeURIComponent(sessionText);
+      var sessionData = "data:text/json;charset=UTF-8," + encodeURIComponent(sessionText);
 
-      var a = document.createElement('a');
-      a.href = uri;
-      a.innerHTML = "Right-click and choose 'save as...'";
-      document.body.appendChild(a);
+      //var a = document.createElement('a');
+      //a.href = uri;
+      //a.innerHTML = "Right-click and choose 'save as...'";
+      //document.body.appendChild(a);
+      // sessionData = window.open(uri,"_blank");
+      // sessionData.body.appendChild(a);
+      // sessionData.focus();
+      var dlAnchorElem = document.getElementById('downloadAnchorElem');
+      dlAnchorElem.setAttribute("href",sessionData);
+      dlAnchorElem.setAttribute("download", "session-data-" + searchQuery.sessionInfo.sessionID + ".json");
+      dlAnchorElem.click();
     }
   }]);
 

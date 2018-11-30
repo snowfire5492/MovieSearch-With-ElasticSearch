@@ -40,13 +40,13 @@
 							<blockquote>
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<span><a href='result._source.URL'>{{result._source.Title
-												}}</a></span> <span>( Genre: {{ result._source.Genre }} | Year:
-											{{result._source.Year}})</span>
+										<span><a href={{result._source.url}} target="_blank">{{result._source.title
+												}}</a></span> <span>( Genre: {{ result._source.genre }} | Year:
+											{{result._source.year}})</span>
 									</div>
 								</div>
 								<div class="panel-body">
-									<p>{{ result._source.Text }}, {{ result._source.URL }}</p>
+									<p>{{ result._source.summary }}</p>
 								</div>
 							</blockquote>
 						</div>

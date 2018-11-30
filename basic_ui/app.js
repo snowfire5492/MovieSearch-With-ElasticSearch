@@ -4,7 +4,7 @@ angular.module('searchApp', [])
 
     searchQuery.search = function() {
 	console.log(searchQuery.queryString);
-    	$http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q='+searchQuery.queryString })
+    	$http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q=*'+searchQuery.queryString+'*' })
 	//$http({ method: 'GET', url: 'test.json' })
       	.then(function (response) {
             console.log(response.data);

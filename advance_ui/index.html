@@ -37,22 +37,23 @@
 				<form ng-submit="searchQuery.search()">
 					<div class="input-group">
 						<div class="input-group-btn">
-					        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <span class="caret"></span></button>
+					        <button id="genrebtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <span class="caret"></span></button>
 					        <ul class="dropdown-menu">
-					          <li><a href="#" onclick="noFilter()"> ------- </a> </li>
+					          <li><a onclick="toGenre()" onclick="noFilter()"> ------- </a> </li>
 					          <li role="separator" class="divider"></li>
-					          <li><a href="#" onclick="ActionFilter()"> Action </a> </li>
-					          <li><a href="#" onclick="AdventureFilter()"> Adventure </a> </li>
-					          <li><a href="#" onclick="AnimationFilter()"> Animation </a> </li>
-					          <li><a href="#" onclick="CrimeFilter()"> Crime </a> </li>
-					          <li><a href="#" onclick="DocumentaryFilter()"> Documentary </a> </li>
-					          <li><a href="#" onclick="DramaFilter()"> Drama </a> </li>
-					          <li><a href="#" onclick="FantasyFilter()"> Fantasy </a> </li>
-					          <li><a href="#" onclick="HorrorFilter()"> Horror </a> </li>
-					          <li><a href="#" onclick="MysteryFilter()"> Mystery </a> </li>
-					          <li><a href="#" onclick="SciFilter()"> Sci-Fi </a> </li>
-					          <li><a href="#" onclick="ShortFilter()"> Short </a> </li>
-					          <li><a href="#" onclick="ThrillerFilter()"> Thriller </a> </li>
+					          <li><a onclick="toAction()" onclick="ActionFilter()"> Action </a> </li>
+					          <li><a onclick="toAdventure()" onclick="AdventureFilter()"> Adventure </a> </li>
+					          <li><a onclick="toAnimation()" onclick="AnimationFilter()"> Animation </a> </li>
+					          <li><a onclick="toComedy()" onclick="ComedyFilter()"> Comedy </a> </li>
+					          <li><a onclick="toCrime()" onclick="CrimeFilter()"> Crime </a> </li>
+					          <li><a onclick="toDocu()" onclick="DocumentaryFilter()"> Documentary </a> </li>
+					          <li><a onclick="toDrama()" onclick="DramaFilter()"> Drama </a> </li>
+					          <li><a onclick="toFantasy()" onclick="FantasyFilter()"> Fantasy </a> </li>
+					          <li><a onclick="toHorror()" onclick="HorrorFilter()"> Horror </a> </li>
+					          <li><a onclick="toMystery()" onclick="MysteryFilter()"> Mystery </a> </li>
+					          <li><a onclick="toSciFi()" onclick="SciFilter()"> Sci-Fi </a> </li>
+					          <li><a onclick="toShort()" onclick="ShortFilter()"> Short </a> </li>
+					          <li><a onclick="toThriller()" onclick="ThrillerFilter()"> Thriller </a> </li>
 					        </ul>
 					    </div>
 						<input class="form-control" autofocus="autofocus" type="text"
@@ -125,3 +126,51 @@
 	<a id="downloadAnchorElem" style="display:none"></a>
 </body>
 </html>
+
+<script>
+	//document.getElementById("demo").innerHTML = "Hello World";
+id="genrebtn"
+	function toGenre(){
+		document.getElementById("genrebtn").innerHTML = "Genre";
+	}
+	function toAction(){
+		document.getElementById("genrebtn").innerHTML = "Action";
+	}
+	function toAdventure(){
+		document.getElementById("genrebtn").innerHTML = "Adventure";
+	}
+	function toAnimation(){
+		document.getElementById("genrebtn").innerHTML = "Animation";
+	}
+	function toCrime(){
+		document.getElementById("genrebtn").innerHTML = "Crime";
+	}
+	function toComedy(){
+		document.getElementById("genrebtn").innerHTML = "Comedy";
+	}
+	function toDocu(){
+		document.getElementById("genrebtn").innerHTML = "Documentary";
+	}
+	function toDrama(){
+		document.getElementById("genrebtn").innerHTML = "Drama";
+	}
+	function toFantasy(){
+		document.getElementById("genrebtn").innerHTML = "Fantasy";
+	}
+	function toHorror(){
+		document.getElementById("genrebtn").innerHTML = "Horror";
+	}
+	function toMystery(){
+		document.getElementById("genrebtn").innerHTML = "Mystery";
+	}
+	function toSciFi(){
+		document.getElementById("genrebtn").innerHTML = "Sci-Fi";
+	}
+	function toShort(){
+		document.getElementById("genrebtn").innerHTML = "Short";
+	}
+	function toThriller(){
+		document.getElementById("genrebtn").innerHTML = "Thriller";
+	}
+	
+</script>

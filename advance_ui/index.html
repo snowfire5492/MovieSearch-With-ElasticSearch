@@ -36,30 +36,30 @@
 			<div class="row" align="center">
 				<form ng-submit="searchQuery.search()">
 					<div class="input-group">
+						<span class="input-group-addon" style="border-style: solid; border-radius: 8px 0 0 8px; border-width: 1px; border-color: #66AFE9; box-shadow: 0 0 5px #66AFE9;">Genre</span>
 						<div class="input-group-btn">
-					        <button id="genrebtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <span class="caret"></span></button>
-					        <ul class="dropdown-menu">
-					          <li><a onclick="toGenre()" onclick="noFilter()"> ------- </a> </li>
+					        <button type="button" style="border-style: solid; border-width: 1px; border-color: #66AFE9; box-shadow: 0 0 5px #66AFE9;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{searchQuery.currentGenre}}<span class="caret"></span></button>
+					        <ul style="border-style: solid; border-radius: 8px; border-width: 1px; border-color: #66AFE9; box-shadow: 0 0 5px #66AFE9;" class="dropdown-menu">
+					          <li><a href="#" ng-click="searchQuery.updateGenre('***')"> All </a> </li>
 					          <li role="separator" class="divider"></li>
-					          <li><a onclick="toAction()" onclick="ActionFilter()"> Action </a> </li>
-					          <li><a onclick="toAdventure()" onclick="AdventureFilter()"> Adventure </a> </li>
-					          <li><a onclick="toAnimation()" onclick="AnimationFilter()"> Animation </a> </li>
-					          <li><a onclick="toComedy()" onclick="ComedyFilter()"> Comedy </a> </li>
-					          <li><a onclick="toCrime()" onclick="CrimeFilter()"> Crime </a> </li>
-					          <li><a onclick="toDocu()" onclick="DocumentaryFilter()"> Documentary </a> </li>
-					          <li><a onclick="toDrama()" onclick="DramaFilter()"> Drama </a> </li>
-					          <li><a onclick="toFantasy()" onclick="FantasyFilter()"> Fantasy </a> </li>
-					          <li><a onclick="toHorror()" onclick="HorrorFilter()"> Horror </a> </li>
-					          <li><a onclick="toMystery()" onclick="MysteryFilter()"> Mystery </a> </li>
-					          <li><a onclick="toSciFi()" onclick="SciFilter()"> Sci-Fi </a> </li>
-					          <li><a onclick="toShort()" onclick="ShortFilter()"> Short </a> </li>
-					          <li><a onclick="toThriller()" onclick="ThrillerFilter()"> Thriller </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Action')"> Action </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Adventure')"> Adventure </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Animation')"> Animation </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Crime')"> Crime </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Documentary')"> Documentary </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Drama')"> Drama </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Fantasy')"> Fantasy </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Horror')"> Horror </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Mystery')"> Mystery </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Sci-Fi')"> Sci-Fi </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Short')"> Short </a> </li>
+					          <li><a href="#" ng-click="searchQuery.updateGenre('Thriller')"> Thriller </a> </li>
 					        </ul>
 					    </div>
-						<input class="form-control" autofocus="autofocus" type="text"
+						<input style="border-style: solid; border-width: 1px; border-color: #66AFE9; box-shadow: 0 0 5px #66AFE9;" class="form-control" autofocus="autofocus" type="text"
 							ng-model="searchQuery.queryString" placeholder="Search for...">
 						<span class="input-group-btn">
-							<button class="btn btn-primary" style="background-color: #286090"
+							<button style="border-style: solid; border-radius: 0 8px 8px 0; border-width: 1px; border-color: #66AFE9; box-shadow: 0 0 5px #66AFE9;" class="btn btn-primary" style="background-color: #286090"
 								type="submit">
 								<span class="glyphicon glyphicon-search"></span> Search
 							</button>
@@ -126,51 +126,3 @@
 	<a id="downloadAnchorElem" style="display:none"></a>
 </body>
 </html>
-
-<script>
-	//document.getElementById("demo").innerHTML = "Hello World";
-id="genrebtn"
-	function toGenre(){
-		document.getElementById("genrebtn").innerHTML = "Genre";
-	}
-	function toAction(){
-		document.getElementById("genrebtn").innerHTML = "Action";
-	}
-	function toAdventure(){
-		document.getElementById("genrebtn").innerHTML = "Adventure";
-	}
-	function toAnimation(){
-		document.getElementById("genrebtn").innerHTML = "Animation";
-	}
-	function toCrime(){
-		document.getElementById("genrebtn").innerHTML = "Crime";
-	}
-	function toComedy(){
-		document.getElementById("genrebtn").innerHTML = "Comedy";
-	}
-	function toDocu(){
-		document.getElementById("genrebtn").innerHTML = "Documentary";
-	}
-	function toDrama(){
-		document.getElementById("genrebtn").innerHTML = "Drama";
-	}
-	function toFantasy(){
-		document.getElementById("genrebtn").innerHTML = "Fantasy";
-	}
-	function toHorror(){
-		document.getElementById("genrebtn").innerHTML = "Horror";
-	}
-	function toMystery(){
-		document.getElementById("genrebtn").innerHTML = "Mystery";
-	}
-	function toSciFi(){
-		document.getElementById("genrebtn").innerHTML = "Sci-Fi";
-	}
-	function toShort(){
-		document.getElementById("genrebtn").innerHTML = "Short";
-	}
-	function toThriller(){
-		document.getElementById("genrebtn").innerHTML = "Thriller";
-	}
-	
-</script>

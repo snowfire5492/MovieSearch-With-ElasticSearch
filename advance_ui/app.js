@@ -1,7 +1,10 @@
 var searchApp = angular.module('searchApp', []);
 
   searchApp.controller('SearchController', ['$scope','$http',function($scope, $http) {
+	  
     var searchQuery = this;
+    var genre = "*";
+    	
     searchQuery.sessionInfo = {
       sessionID:sessionID(),
       queries:new Array,
@@ -23,22 +26,41 @@ var searchApp = angular.module('searchApp', []);
       return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     };
 
+    //~ searchQuery.search = function() {
+      //~ var now = new Date();
+      //~ var logEntry = "'" + searchQuery.queryString + "' queried at " + now.toString();
+      //~ console.log(logEntry);
+      //~ searchQuery.sessionInfo.queries.push(logEntry);
+      //~ searchQuery.sessionInfo.total_queries += 1;
+    	//~ $http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q=*'+searchQuery.queryString+'*' })
+      	//~ .then(function (response) {
+            //~ return searchQuery.results = response.data;
+      	//~ }, function (response) { }
+   	//~ );
+    //~ };
+    
     searchQuery.search = function() {
       var now = new Date();
       var logEntry = "'" + searchQuery.queryString + "' queried at " + now.toString();
       console.log(logEntry);
+      //console.log('{  "query": {  "bool": {  "must": [  { "wildcard": { "genre": "*'+genre+'*" } },  { "query_string": {  "query": "*'+searchQuery.queryString+'*"  }  }  ]  }  }  }');
       searchQuery.sessionInfo.queries.push(logEntry);
       searchQuery.sessionInfo.total_queries += 1;
-      $http({ method: 'GET', url: 'http://localhost:9200/imdb/_search?q=*'+searchQuery.queryString+'*' })
-  //$http({ method: 'GET', url: 'test.json' })
-        .then(function (response) {
-            //console.log(response.data);
+    	$http({ method: 'POST', 
+				url: 'http://localhost:9200/imdb/_search',
+				data: '{  "query": {  "bool": {  "must": [  { "wildcard": { "genre": "*'+genre.substring(1,genre.length-1)+'*" } },  { "query_string": {  "query": "*'+searchQuery.queryString+'*"  }  }  ]  }  }  }'
+				})
+      	.then(function (response) {
             return searchQuery.results = response.data;
-      //return searchQuery.results = [{"took":1,"timed_out":false,"_shards":{"total":5,"successful":5,"skipped":0,"failed":0},"hits":{"total":0,"max_score":null,"hits":[]}}]
-        }, function (response) {
-
-        }
-    );
+      	}, function (response) { }
+   	);
+    };
+    
+    searchQuery.updateGenre = function(newGenre) {
+      genre = newGenre;
+      //console.log(genre.substring(1,genre.length-1));
+      //console.log(genre);
+      return searchQuery.currentGenre = genre;
     };
 
     searchQuery.logURLClick = function($event) {
@@ -73,35 +95,3 @@ var searchApp = angular.module('searchApp', []);
       dlAnchorElem.click();
     }
   }]);
-
-function noFilter() {
-  // set string = "";
-}             
-function ActionFilter() {
-  // set string = "Action";
-}             
-function AdventureFilter() { 
-}             
-function AnimationFilter() {
-}             
-function CrimeFilter() {
-}     
-function ComedyFilter(){
-  
-}        
-function DocumentaryFilter() {
-}             
-function DramaFilter() {
-}             
-function FantasyFilter() {
-}             
-function HorrorFilter() {
-}             
-function MysteryFilter() {
-}             
-function SciFilter() {
-}             
-function ShortFilter() {
-}             
-function ThrillerFilter() {
-}  

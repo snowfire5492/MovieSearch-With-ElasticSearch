@@ -41,7 +41,8 @@ var searchApp = angular.module('searchApp', []);
     
     searchQuery.search = function() {
       var now = new Date();
-      var logEntry = "'" + searchQuery.queryString + "' queried at " + now.toString();
+      var logEntry = "'" + searchQuery.queryString + "' with genre specification '" +
+        genre + "' queried at " + now.toString();
       console.log(logEntry);
       //console.log('{  "query": {  "bool": {  "must": [  { "wildcard": { "genre": "*'+genre+'*" } },  { "query_string": {  "query": "*'+searchQuery.queryString+'*"  }  }  ]  }  }  }');
       searchQuery.sessionInfo.queries.push(logEntry);
@@ -82,13 +83,6 @@ var searchApp = angular.module('searchApp', []);
       var sessionText = JSON.stringify(searchQuery.sessionInfo);
       var sessionData = "data:text/json;charset=UTF-8," + encodeURIComponent(sessionText);
 
-      //var a = document.createElement('a');
-      //a.href = uri;
-      //a.innerHTML = "Right-click and choose 'save as...'";
-      //document.body.appendChild(a);
-      // sessionData = window.open(uri,"_blank");
-      // sessionData.body.appendChild(a);
-      // sessionData.focus();
       var dlAnchorElem = document.getElementById('downloadAnchorElem');
       dlAnchorElem.setAttribute("href",sessionData);
       dlAnchorElem.setAttribute("download", "session-data-" + searchQuery.sessionInfo.sessionID + ".json");

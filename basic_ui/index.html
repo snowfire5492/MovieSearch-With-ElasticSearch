@@ -8,13 +8,19 @@
 <script src="app.js"></script>
 </head>
 <body>
-	<div class="jumbotron" style="background-color:#286090">
-		<center>
-			<h1 class="display-1" style="color:#FFFFFF; font-family:Georgia">Search IMDB Movies!</h1>
-		</center>
-	</div>
-	<div class="container">
-		<div ng-controller="SearchController as searchQuery">
+	<div ng-controller="SearchController as searchQuery">
+		<div class="jumbotron" style="background-color: #286090">
+			<nav class="navbar navbar-fixed-top">
+	      		<div class="container-fluid">
+					<button class="btn btn-primary navbar-btn pull-right" ng-click="searchQuery.saveSession()">End Session</a>
+				</div>
+			</nav>
+			<center>
+				<h1 class="display-1" style="color: #FFFFFF; font-family: Georgia">Search
+					IMDB Movies!</h1>
+			</center>
+		</div>
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-offset-2">
 					<form ng-submit="searchQuery.search()">
@@ -40,7 +46,7 @@
 							<blockquote>
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<span><a href={{result._source.url}} target="_blank">{{result._source.title
+										<span><a href={{result._source.url}} ng-click="searchQuery.logURLClick($event)" target="_blank">{{result._source.title
 												}}</a></span> <span>( Genre: {{ result._source.genre }} | Year:
 											{{result._source.year}})</span>
 									</div>
@@ -55,6 +61,7 @@
 			</div>
 			<div ng-if="searchQuery.results.timed_out">Time out try again</div>
 		</div>
-	</div>
+	<div>
+	<a id="downloadAnchorElem" style="display:none"></a>
 </body>
 </html>

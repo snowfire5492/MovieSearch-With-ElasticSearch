@@ -33,3 +33,6 @@ Finally download the Basic UI html and js files
         download the advanced UI html and js files
         
 Simply open the html file and enjoy searching!
+
+guide for using kibana UI
+https://www.elastic.co/guide/en/kibana/4.0/setup.html
